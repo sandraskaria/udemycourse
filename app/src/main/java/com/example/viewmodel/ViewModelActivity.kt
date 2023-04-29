@@ -10,16 +10,28 @@ import com.example.databinding.databinding.ActivityViewModelBinding
 class ViewModelActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewModelBinding
     private lateinit var viewModel: ModelActivityViewModel
+    private lateinit var viewModelFactory: ModelActivityViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view_model)
-        viewModel = ViewModelProvider(this).get(ModelActivityViewModel::class.java)
 
-        binding.countText.text = viewModel.getCurrentCount().toString()
+        viewModelFactory = ModelActivityViewModelFactory(100)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ModelActivityViewModel::class.java)
+
+        //viewModel = ViewModelProvider(this).get(ModelActivityViewModel::class.java)
+
+        binding.countText.text = viewModel.getUpdatedNumber().toString()
 
         binding.counterButton.setOnClickListener {
-            binding.countText.text = viewModel.getUpdatedCount().toString()
+            val numberToAdd = binding.editTextNumber.text.toString()
+
+            if(numberToAdd.isNotBlank()) {
+                viewModel.doAddition(numberToAdd.toInt())
+
+                binding.countText.text = viewModel.getUpdatedNumber().toString()
+                binding.editTextNumber.text.clear()
+            }
         }
     }
 }

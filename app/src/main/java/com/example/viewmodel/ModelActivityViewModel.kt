@@ -2,14 +2,15 @@ package com.example.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class ModelActivityViewModel: ViewModel() {
-    private var count = 0
+class ModelActivityViewModel(val startValue: Int): ViewModel() {
+    private var count = startValue
 
-    fun getCurrentCount(): Int {
-        return count
+    fun doAddition(number: Int) {
+       // count = number?.plus(count) ?: 0
+        count += number
     }
 
-    fun getUpdatedCount(): Int {
-        return ++count
+    fun getUpdatedNumber(): Int {
+        return count
     }
 }
