@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DataBinding"
         tools:targetApi="31">
         <activity
-            android:name="com.example.viewmodel.ViewModelActivity"
+            android:name="com.example.livedata.student.StudentActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DataBinding.NoActionBar">
@@ -25,9 +25,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainActivity"/>
-
+        <activity android:name="com.example.viewmodel.ViewModelActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name="com.example.livedata.LiveDataActivity" />
     </application>
 
 </manifest>
