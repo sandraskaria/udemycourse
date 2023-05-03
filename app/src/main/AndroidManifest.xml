@@ -15,7 +15,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name="com.example.twowaydatabind.sample.TwoWayAddActivity"
+            android:name="com.udemysample.navigation.NavigationSampleActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DataBinding.NoActionBar">
@@ -32,6 +32,7 @@
         <activity android:name="com.example.viewmodel.ViewModelDataBindActivity" />
         <activity android:name="com.example.viewmodel.LiveDataWithDataBindActivity" />
         <activity android:name="com.example.twowaydatabind.TwoWayBindActivity" />
+        <activity android:name="com.example.twowaydatabind.sample.TwoWayAddActivity" />
     </application>
 
 </manifest>
